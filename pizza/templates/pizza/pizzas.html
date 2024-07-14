@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block 'body' %}
+<h1>Order Your Pizzas</h1>
+<h2>{{ note }}</h2>
+<form action="{% url "pizzas.view" %}" method="post">
+  {% csrf_token %}{{ formset.management_form}} {% for form in formset %} {{form}}
+  <br />
+  <br />
+  {% endfor %}
+  <input type="submit" class="btn btn-primary" value="Order Pizzas" />
+</form>
+</div>
+{% endblock %}
